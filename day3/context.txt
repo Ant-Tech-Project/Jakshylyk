@@ -1,2 +1,4 @@
 Red
 green
+its from his-branch
+lets conflict with my-branch
