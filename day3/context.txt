@@ -1,2 +1,4 @@
 Red
 green
+for conflicting
+branchs his-branch vs my branch
