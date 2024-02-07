@@ -34,6 +34,13 @@ git checkout --ours path/to/conflicted-file
 - Similarly, you can abort a rebase operation using ```git rebase --abort```.
 
 
+## Step-by-step instruction for how to resolve a conflct
+ 
+Created a new branch called ```his-branch``` and made some changes to the file ```content.txt```. 
+
+Inside them I added a diffent words in both branch files.
+After that I merged the ```his-branch``` to the ```main``` branch. Resolved conflict accepting the incoming changes from the ```his-branch``` branch.
+
 
 
 
