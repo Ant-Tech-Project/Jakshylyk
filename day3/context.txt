@@ -1,4 +1,4 @@
 Red
 green
-for conflicting
-branchs his-branch vs my branch
+its from his-branch
+lets conflict with my-branch
