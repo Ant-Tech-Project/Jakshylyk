@@ -42,7 +42,6 @@ git checkout --ours path/to/conflicted-file
 
 
 
-
 ### Additional resources
 - [How to Resolve Merge Conflicts in Git?](https://www.simplilearn.com/tutorials/git-tutorial/merge-conflicts-in-git)
 - [Git Merge Conflicts](https://www.atlassian.com/git/tutorials/using-branches/merge-conflicts)
