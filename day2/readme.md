@@ -1,10 +1,9 @@
-Day 2: Git Branching and Merging
-1) Introduce the concept of remote repositories.
-2) Discuss commands like git clone, git push, and git pull
-3) Explain the concept of branches and their importance.
-   - Lightweight moveable pointer
-4) Demonstrate creating, switching, and deleting branches.
-5) Discuss the merging process in Git.
+## Git Branching and Merging
+-  [Introduce the concept of remote repositories.](#git-remote-repositories)
+-  [Discuss commands like git clone, git push, and git pull](#git-push-pull-clone)
+-  [Explain the concept of branches and their importance.](#git-branch-concepts)
+-  [Demonstrate creating, switching, and deleting branches.](#creating-switching-deleting-branches)
+- [How to recover deleted branch](#how-to-recover-deleted-branch)
 
 ## Git remote repositories
 - Remote repositories are versions of your project that are hosted on the Internet or network somewhere.
@@ -65,3 +64,39 @@ git clone --branch v1.0 https://github.com/example/repo.git
 - If you want to pull down the latest changes from a remote repository without overwriting anything in your working directory, then use git fetch, and then do a git merge when the time is right.
 
 ![Markdown Logo](https://itknowledgeexchange.techtarget.com/coffee-talk/files/2023/05/git-fetch-vs-merge.gif)
+
+## Creating, switching, deleting branches
+
+### ```git checkout``` - "checking out" a branch
+
+- ```git checkout``` is used to switch between branches.
+
+- The difference between the ```git clone git checkout``` commands is that ```clone``` works to fetch code from a remote repository, alternatively ```checkout``` works to switch between versions of code already on the local system.
+
+```bash 
+git checkout -b ＜new-branch＞
+```
+- It will create the new branch and immediately switch to it.
+- In a background its run ```git branch new-branch``` and ```git checkout new-branch```
+
+### [Deleting a GIT local branch](https://refine.dev/blog/git-delete-remote-branch-and-local-branch/#deleting-a-git-local-branch)
+- ```git branch -d "branch name"``` Only removes the branch if it is fully merged in its parent branch. If you have unmerged changes, then it will not remove the branch, and you will get an error.You will need to forcibly remove the branch if you want to delete the branch, irrespective of the merge status. You can use the below command to remove the local branch forcibly: ```git branch -D <branchName>``` (--delete --force)
+
+### Deleting a Git remote branch
+- ```git push origin -d "branch name" ``` - To delete a branch from the remote repository.
+
+
+### How to recover deleted branch
+- Use git reflog command and find the SHA1 for the commit at the tip of your deleted branch, then just git checkout [sha] . And once you're at that commit, you can just git branch branchname <SHA> to recreate the branch from there.
+![Markdown Logo](https://refine.ams3.cdn.digitaloceanspaces.com/blog/2022-11-27-git-delete/git-delete-branch-8.png)
+---
+
+### How to automatically delete a branch when it is merge back into master
+To avoid dangling branches, you can set up the configuration so that your branch will be automatically deleted as soon as it is merged into its parent branch e.g. Master branch
+
+1. On GitHub.com, go to the home page of the repository.
+2. Under your repository name, click Settings.
+3. Under "Pull Requests", select or unselect Automatically delete head branches.
+
+![Markdown Logo](https://refine.ams3.cdn.digitaloceanspaces.com/blog/2022-11-27-git-delete/git-delete-branch-9.png)
+---
