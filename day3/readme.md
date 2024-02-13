@@ -99,6 +99,19 @@ Merge branch 'master' of github.com:pranayaggarwal/enumifier
 
 
 
+resource "aws_s3_bucket" "mybucket" {
+  bucket = "mybucket"
+
+  tags = {
+    Name        = "My bucket"
+    Environment = "Dev"
+  }
+}
+
+resource "aws_s3_bucket_acl" "example" {
+  bucket = aws_s3_bucket.mybucket.id
+  acl    = "private"
+}
 
 
 ### Additional resources

@@ -10,6 +10,14 @@
 
 ![alt text](image.png)
 
+- ```git rebase -i HEAD~3 ``` 
+
+Note: Rebase is an action to rewrite commits and their history “-i” is to enter into an interactive mode of rebase HEAD~n states to perform our operation on n commits from HEAD.
+- Upon entering the above command we’ll get an interactive editor with all our selected commits which is where we’ll be performing squash.
+
+![image](https://media.geeksforgeeks.org/wp-content/uploads/20230519113409/git-merge-dev.png)
+
+- To squash  2nd and 3rd commit with 1st commit, so we’ll change the first word from pick to squash. whichever commits we want to squash we have to change it to squash from pick 
 
 ### What is the **Git Rebase**?
 - All in one line
@@ -39,3 +47,37 @@
 ![alt text](image-2.png)
 - ```git checkout master```
 - ```git rebase feature```
+
+
+---
+### Git tag
+
+- ```git tag v1.0.0``` add tag to the commit (in local env)
+- ```git push origin main v1.0.0``` push the tag to the remote repo
+-  ```git tag -d v1.0.0``` delete tag from local repo
+- ```git push origin --delete v1.0.0``` delete tag from remote repo
+- ```git tag --annotate (or -a) v1.0.0 <commit id>``` add tag to the commit (in local env)
+- ```git push origin --tags``` push all tags to the remote repo
+
+
+Git supports two types of tags: 
+- lightweight
+- annotated
+
+**Annotated Tags**
+
+Annotated tags, however, are stored as full objects in the Git database. They’re checksummed; contain the tagger name, email, and date; have a tagging message; and can be signed and verified with GNU Privacy Guard (GPG). It’s generally recommended that you create annotated tags so you can have all this information; but if you want a temporary tag or for some reason don’t want to keep the other information, lightweight tags are available too.
+
+Creating an annotated tag in Git is simple. The easiest way is to specify -a when you run the tag command:
+```
+git tag -a v1.4
+git tag -a v1.4 -m "my version 1.4"
+```
+The `-m` specifies a tagging message, which is stored with the tag. If you don’t specify a message for an annotated tag, Git launches your editor so you can type it in.
+
+**Lightweight Tags**
+
+This is basically the commit checksum stored in a file — no other information is kept. To create a lightweight tag, don’t supply any of the -a, -s, or -m options, just provide a tag name:
+```
+git tag v1.4-lw
+```
